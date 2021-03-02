@@ -16,5 +16,10 @@
 	"bugs": {
 		"url": "https://github.com/sincopeiro/lab-express-rooms-with-reviews/issues"
 	},
-	"homepage": "https://github.com/sincopeiro/lab-express-rooms-with-reviews#readme"
+	"homepage": "https://github.com/sincopeiro/lab-express-rooms-with-reviews#readme",
+	"dependencies": {
+		"bootstrap": "^4.6.0",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	}
 }
