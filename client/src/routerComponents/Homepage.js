@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import RoomCard from '../components/RoomCard';
+import { Link } from 'react-router-dom';
 
 export default function Homepage() {
 	const [rooms, setRooms] = useState([]);
@@ -23,11 +24,13 @@ export default function Homepage() {
 		<div className='col-12'>
 			{rooms.map((element) => {
 				return (
-					<RoomCard
-						name={element.name}
-						image={element.imageUrl}
-						description={element.description}
-					/>
+					<Link to={`/${element._id}`}>
+						<RoomCard
+							name={element.name}
+							image={element.imageUrl}
+							description={element.description}
+						/>
+					</Link>
 				);
 			})}
 		</div>

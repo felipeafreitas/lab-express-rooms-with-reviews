@@ -19,4 +19,7 @@ app.use('/', router);
 const roomRouter = require('./routes/rooms.routes');
 app.use('/', roomRouter);
 
+const reviewRouter = require('./routes/review.routes');
+app.use('/', reviewRouter);
+
 app.listen(4000, () => console.log(`Server up and running at port ${4000}`));

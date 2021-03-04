@@ -33,7 +33,7 @@ export default function Form(props) {
 			<Link to='/'>
 				<button type='submit' className='btn btn-primary'>
 					Save
-				</button>{' '}
+				</button>
 			</Link>
 		</form>
 	);
