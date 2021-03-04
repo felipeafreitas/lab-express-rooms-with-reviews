@@ -25,25 +25,20 @@ export default function RoomDetail(props) {
 			const response = await axios.get(`http://localhost:4000/room/${id}`);
 
 			setRoomDetails({ ...response.data });
-
-			// const review = await axios.get(`http://localhost:4000/room/${id}/review`);
-
-			// console.log(review.data.reviews);
-			// setRoomDetails({ reviews: review.data.reviews });
+			
 		}
 		fetchRoomDetails();
 	}, [id]);
 
-	useEffect(() => {
-		async function fetchRoomReviews() {
-			const response = await axios.get(
-				`http://localhost:4000/room/${id}/review`
-			);
+	async function fetchRoomReviews() {
+		const response = await axios.get(`http://localhost:4000/room/${id}/review`);
 
-			setRoomReviews({ ...response.data });
-		}
+		setRoomReviews({ ...response.data });
+	}
+
+	useEffect(() => {
 		fetchRoomReviews();
-	}, [id]);
+	});
 
 	async function deleteReview(event) {
 		console.log(event);
@@ -53,7 +48,7 @@ export default function RoomDetail(props) {
 			);
 			console.log(response);
 
-			history.push('/');
+			fetchRoomReviews();
 		} catch (err) {
 			console.error(err);
 		}
@@ -100,6 +95,7 @@ export default function RoomDetail(props) {
 				handleClose={() => setShowReviewModal(false)}
 				action={`/room/${id}/review`}
 				id={id}
+				fetchRoomReviews={fetchRoomReviews}
 			/>
 		</div>
 	);

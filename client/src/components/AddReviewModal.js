@@ -34,7 +34,8 @@ export default function AddReviewModal(props) {
 			);
 
 			console.log(state);
-			history.push(`/`);
+
+			props.fetchRoomReviews()
 		} catch (err) {
 			console.log(err);
 		}
@@ -42,11 +43,6 @@ export default function AddReviewModal(props) {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			{/* <Modal show={props.show} onHide={props.handleClose} onSubmit={handleSubmit}>
-				<Modal.Header closeButton>
-					<Modal.Title>Add Review</Modal.Title>
-				</Modal.Header>
-				<Modal.Body> */}
 			<TextAreaInput
 				label='Review'
 				type='text'
@@ -55,16 +51,9 @@ export default function AddReviewModal(props) {
 				value={state.comment}
 				onChange={handleChange}
 			/>
-			{/* </Modal.Body>
-				<Modal.Footer>
-					<Button variant='secondary' onClick={props.handleClose}>
-						Close
-					</Button> */}
 			<button type='submit' className='btn btn-danger'>
 				Confirm
 			</button>
-			{/* </Modal.Footer>
-			</Modal> */}
 		</form>
 	);
 }
